@@ -1,0 +1,24 @@
+<div class="content">
+  <ng-container *ngIf="$blogPosts| async as blogposts">
+    <div class="sidenav">
+      <ul class="ul">
+        <li *ngFor="let menus of blogposts">
+          <h1>{{menus.menu}}</h1>
+          <ul class="sub_menu" *ngFor="let menu of menus.routes">
+            <a [routerLinkActive]="'active_menu'" [routerLink]="menu.route">{{menu.title}}</a>
+          </ul>
+        </li>
+      </ul>
+
+      <a [routerLink]="($activeRoute | async).alternate_lang">
+        {{(route.params|async).lang === 'en'? 'Version francaise' : 'English version'}}
+      </a>
+    </div>
+  </ng-container>
+  <main>
+    <scully-content></scully-content>
+    <hr />
+    {{$blogPosts| async | json}}
+    <hr />
+  </main>
+</div>

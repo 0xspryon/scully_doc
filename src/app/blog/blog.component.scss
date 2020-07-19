@@ -1,0 +1,53 @@
+:host {
+  display: contents;
+}
+
+.content {
+  height               : 100%;
+  width                : 100%;
+  display              : grid;
+  grid-template-columns: 200px 1fr;
+  color                : black;
+}
+
+.sidenav {
+  background-color: #eee;
+  display         : grid;
+  margin          : 0;
+  padding         : 0;
+  align-content   : space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  height: 100%;
+
+
+  &>* {
+    margin-bottom: 16px;
+  }
+}
+
+.sub_menu {
+  display           : grid;
+  grid-auto-flow    : row;
+  grid-template-rows: 30px;
+  align-items       : stretch;
+  margin            : 0;
+  padding           : 0;
+  row-gap           : 8px;
+
+  &>* {
+    padding        : 16px;
+    text-justify   : left;
+    display        : flex;
+    align-items    : center;
+    justify-content: flex-start;
+
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+}
+
+.active_menu {
+  background-color: #ccc;
+}
